@@ -151,6 +151,8 @@ local function DigestBlock(Text,Index,Hash)
 end
 
 return function(Text)
+    Text = tostring(Text)
+    
     do
         local Extra = 64 - (#Text + 9 % 64)
         local Length = Bytes(8 * #Text,8)
