@@ -1,3 +1,13 @@
+if syn and syn.crypt and syn.crypt.custom and syn.crypt.custom.hash then
+    local hash = syn.crypt.custom.hash
+    
+    return function(Text)
+        Text = tostring(Text)
+        
+        return hash("sha256",Text)
+    end
+end
+
 local bit = bit or bit32
 
 local byte = string.byte
