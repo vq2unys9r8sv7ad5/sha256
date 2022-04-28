@@ -2,9 +2,13 @@ if syn and syn.crypt and syn.crypt.custom and syn.crypt.custom.hash then
     local hash = syn.crypt.custom.hash
     
     return function(Text)
-        Text = tostring(Text)
-        
-        return hash("sha256",Text)
+        return hash("sha256",tostring(Text))
+    end
+elseif crypt and crypt.hash then
+    local hash = crypt.hash
+    
+    return function(Text)
+        return hash(tostring(Text))
     end
 end
 
