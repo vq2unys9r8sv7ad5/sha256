@@ -1,30 +1,13 @@
-if syn and syn.crypt and syn.crypt.custom and syn.crypt.custom.hash then
-    local hash = syn.crypt.custom.hash
-    
-    return function(Text)
-        return hash("sha256",tostring(Text))
-    end
-elseif crypt and crypt.hash then
-    local hash = crypt.hash
-    
-    return function(Text)
-        return hash(tostring(Text))
-    end
-end
-
-local bit = bit or bit32
-
 local byte = string.byte
 local char = string.char
 local format = string.format
 local gsub = string.gsub
 local rep = string.rep
-
-local band = bit.band
-local bnot = bit.bnot
-local bxor = bit.bxor
-local rrotate = bit.rrotate
-local rshift = bit.rshift
+local band = bit32.band
+local bnot = bit32.bnot
+local bxor = bit32.bxor
+local rrotate = bit32.rrotate
+local rshift = bit32.rshift
 
 local Primes = {
     0x428a2f98,
